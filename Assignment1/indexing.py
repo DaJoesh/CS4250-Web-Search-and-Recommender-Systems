@@ -78,7 +78,7 @@ print("Term Frequency:", term_frequency)
 idf = calculate_inverse_document_frequency(stemming_removal, index_terms)
 print ("Inverse Document Frequency:", idf)
 
-#calulate tf-idf
+#calulate tf-idf and make it look pretty
 tf_idf_matrix = [["Document"] + index_terms]
 for i, doc in enumerate(stemming_removal, start=1):
     row = [f"d{i}"] + [tf * idf for tf, idf in zip(calculate_term_frequency(doc, index_terms), idf)]
@@ -86,6 +86,5 @@ for i, doc in enumerate(stemming_removal, start=1):
 
 #Printing the document-term matrix.
 #--> add your Python code here
-
 for row in tf_idf_matrix:
     print(row)
