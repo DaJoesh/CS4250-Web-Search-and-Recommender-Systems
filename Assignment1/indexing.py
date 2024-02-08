@@ -3,7 +3,7 @@
 # FILENAME: indexing.py
 # SPECIFICATION: This creates a tf-idf matrix from a collection of documents from collection.csv
 # FOR: CS 4250- Assignment #1
-# TIME SPENT: 30 minutes
+# TIME SPENT: 2 hours
 #-----------------------------------------------------------*/
 
 #IMPORTANT NOTE: DO NOT USE ANY ADVANCED PYTHON LIBRARY TO COMPLETE THIS CODE SUCH AS numpy OR pandas. You have to work here only with standard arrays
@@ -20,6 +20,7 @@ with open('Assignment1/collection.csv', 'r') as csvfile:
   for i, row in enumerate(reader):
          if i > 0:  # skipping the header
             documents.append (row[0])
+            
 #Conducting stopword removal. Hint: use a set to define your stopwords.
 #--> add your Python code here
 stopWords = {'She','her','and','I','their','They'}
@@ -33,6 +34,7 @@ for document in documents:
     stopword_removal.append(words)
 print("stopword removal:",stopword_removal)
 print ("d counter:",d_counter)
+
 #Conducting stemming. Hint: use a dictionary to map word variations to their stem.
 #--> add your Python code here
 stemming = {"loves":"love","dogs":"dog","cats":"cat"}
@@ -41,6 +43,7 @@ for doc in stopword_removal:
     stemmed_words = [stemming[word] if word in stemming else word for word in doc]
     stemming_removal.append(stemmed_words)
 print("stemming removal:",stemming_removal)
+
 #Identifying the index terms.
 #--> add your Python code here
 index_terms = ["love","cat","dog"]
